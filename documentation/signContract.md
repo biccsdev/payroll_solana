@@ -1,5 +1,7 @@
 # Use Case Description
 
+## Sign Contract
+
 ## 1. Actors
 
 - **Solana User**: Has a valid Solana wallet address.

@@ -1,5 +1,7 @@
 # Use Case Description
 
+## Create Contract
+
 ## 1. Actors
 
 - **Solana User**: Has the ability to create a new account based on his Solana wallet address.

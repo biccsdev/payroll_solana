@@ -1,5 +1,7 @@
 # Use Case Description
 
+## Edit Contract
+
 ## 1. Actors
 
 - **Verified User**: Has the ability to create a new contract.
