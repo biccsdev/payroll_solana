@@ -4,45 +4,53 @@
 
 ## 1. Actors
 
-- **Verified User**: Has the ability to create a new contract.
+- **Solana User**: Has the ability to create a new account based on his Solana wallet address.
 
 ## 1.2. Preconditions
 
 - The user should have a valid Solana wallet address.
-- The user must have a verified account.
-- The user must have $USDC or $SOL to put in the contract as collateral (payment).
-- The receiver must have a valid Solana wallet address.
+- The user needs to provide a valid phone number.
+- The user needs to provide his full name.
+- The user needs to provide his email.
+- The user needs to provide his birth date.
 
 ## 1.3. Main Flow
 
-1. The user clicks the "create new contract" button.
-2. The system prompts the user with a modal to enter the following data:
-   - Contract title
-   - Contract description (requirements for the contract to be fulfilled)
-   - Receiver Solana wallet address
-   - Currency of payment (SOL or USDC)
-   - Amount of payment
-   - Expiration date
-3. If the data provided by the issuer is valid, the user clicks "create contract."
-4. A sign popup appears in the user's wallet asking to sign the transaction and send the amount of payment in the selected currency.
-5. The system creates the contract PDA that stores all the data and assets of the contract.
-6. The system mints two cNFTs and sends one to the issuer and the other to the receiver with all the data related to the contract.
-7. The contract creation modal closes.
+1. The user navigates to the home page.
+2. The user clicks the login button.
+3. If the Solana wallet address that the user clicks the login button with already has an account, it takes the user to his profile.
+4. If it doesn't have an account yet, it takes the user to a create account page.
+5. The user enters his personal data such as:
+   - Phone number
+   - Full name
+   - Birth date
+   - Email
+6. The user clicks the create account button.
+7. If all the data provided by the user is valid, a new account is created.
+8. The account created will have the status "unverified."
+9. The system will send an email to the user with a verification code.
+10. The account with "unverified" status will not be able to create or sign contracts.
+11. The system takes the user to his new profile page.
+12. The system will show a box for the user to enter his verification code.
+13. The system will show a "create new contract" button ONLY after the user is verified.
 
 ## 1.4. Alternate Flows
 
-- **The issuer doesn’t have funds to add to the contract**: The issuer can't create the contract.
-- **The issuer adds invalid data to the contract creation**: The issuer can't create the contract.
+- **Invalid personal data**: If the user doesn't provide a valid email, phone number, or name, the system will not allow the user to create an account.
+- **Invalid user age**: If the user's age is below 18, it will not allow him to create an account.
+- **User entered a wrong email**: If the user loses access to his email before being able to verify his account, there will be a "change email" link, which will prompt a modal to the user to let him change the email provided and resend the verification code. Once the email is changed and the new verification code is sent, the old verification code previously sent will become inactive/useless.
+- **User never verifies account**: If the user does not verify his account within 7 days of its creation, the system will automatically delete the account.
 
 ## 1.5. Postconditions
 
-- A contract is created with all the proper data.
-- Two cNFTs with the contract details are minted and sent to the issuer and receiver, respectively.
+The user will have a valid account ready to create/sign contracts.
 
 ## 2. Acceptance Criteria
 
-- A contract with all the proper data is created.
-- Two cNFTs with the contract data are created and sent to the issuer and receiver, respectively.
+- The user must provide valid personal information.
+- The user must verify the account via a verification code sent by email.
+- The user must be 18+ years old.
+- The user must have a valid Solana Wallet Address.
 
 ## 3. Appendices
 
